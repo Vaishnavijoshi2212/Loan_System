@@ -1,0 +1,23 @@
+<h1><b>Loan Types List</b></h1>
+<section class="home-section">
+    <div>
+        <table class="table thead-dark " id="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of Loans</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of data.loans; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{data.Type}}</td>
+                    <td><img src={{data.Image}}></td>
+                    <td>{{data.Description}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

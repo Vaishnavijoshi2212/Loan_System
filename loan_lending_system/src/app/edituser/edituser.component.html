@@ -1,0 +1,70 @@
+<form class="container" #myForm="ngForm"> 
+    <section>
+        <h4><b>User Details</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Full name:</label>
+            <div class="col-md-5">
+             <input type="text" class="form-control bg-light"  #name value={{info.Name}}> 
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label  class="col-md-2 label col-form-label text-dark required ">Date of Birth:</label>
+            <div class="col-md-5">
+                <input class="form-control bg-light" #date value={{info.DOB}} /> 
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label  class="col-md-2 label col-form-label text-dark required">Mobile:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control bg-light" #mobile value={{info.Mobile}} >
+                  
+            </div>
+        </div><br>
+       
+        <section>
+            <h4><b>Loan Type</b></h4>
+            <div class="form-group row">
+                <label class="col-md-2 label col-form-label text-dark required " value="loan">Loan:</label>
+                <div class="col-md-5 dropdown ">
+                    <select class="col-md-13 form-control bg-light" #loans  [(ngModel)]="loan" name="loantype"
+                        (click)="getLoanValue($event)" required>
+                        <option value="">Select Loan Type </option>
+                        <option *ngFor="let data of data.loans; index as i" value={{data.Type}}>{{data.Type}}</option>
+                    </select>
+                    <h6 class="error-message name-error-message">{{errloan}}</h6>
+                </div>
+            </div><br>
+        </section>
+    
+        <h4><b>Loan Details</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Principal Amount:</label>
+            <div class="col-md-5">
+                <input type="number" name="amount" class="form-control bg-light" #pamount value={{info.p}}>
+                
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Rate:</label>
+            <div class="col-md-5">
+                <input type="number" name="rate" #rate class="form-control bg-light" value={{info.r}}>
+                
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark  required">Time in Months:</label>
+            <div class="col-md-5">
+                <input type="number" name="time" #time class="form-control bg-light" value={{info.t}} >
+            </div>
+        </div><br><br>
+         <div class="btn-group">
+            <button type="button" class="btn" (click)="backBtn()">Cancel</button>
+            <button type="submit" class="btn upbtn"  (click)="updateBtn(name.value,date.value,mobile.value,loans.value,pamount.value,rate.value,time.value)">Update</button>
+        </div>
+    </section>
+</form>
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+
+

@@ -1,0 +1,36 @@
+<h1><b>User List</b></h1>
+<section class="home-section">
+    <div>
+        <table class="table thead-dark" id="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>DOB</th>
+                    <th class="right">Mobile</th>
+                    <th>Loan</th>
+                    <th>Calculation</th>
+                    <th class="right">Simple Interest</th>
+                    <th class="right">Total Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of data.user_loan; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{data.Name | titlecase}}</td>
+                <td id="right">{{data.DOB}}</td>
+                <td id="right">(+91) - {{data.Mobile}}</td>
+                <td>{{data.Loan | titlecase}}</td>
+                <td>(({{data.p}}*{{data.r}}*{{data.t}}) / 100)</td>
+                <td id="right">{{data.si | currency:'INR' }}</td>
+                <td id="right">{{data.ai | currency:'INR'}}</td>
+                <td>
+                    <button class="btn" [routerLink]="['/detailview',data.id]">Detail View</button>&nbsp;&nbsp;
+                    <button class="btn delbtn" [routerLink]="['/edituser',data.id]">Update</button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

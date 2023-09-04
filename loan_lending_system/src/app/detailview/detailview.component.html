@@ -1,0 +1,73 @@
+<form class="container" #myForm="ngForm">
+    <section>
+        <h4><b>User Details</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Full name:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control bg-light" value={{info.Name}} readonly>
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required ">DOB:</label>
+            <div class="col-md-5">
+                <input class="form-control bg-light" value={{info.DOB}} readonly />
+
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Mobile:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control bg-light" value={{info.Mobile}} readonly>
+
+            </div>
+        </div><br>
+        <h4><b>Loan Type</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark " value="loan">Loan:</label>
+            <div class="col-md-5 dropdown ">
+                <input type="text" class="form-control bg-light" value={{info.Loan}} readonly>
+            </div>
+        </div><br>
+
+        <h4><b>Loan Details</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Principal Amount:</label>
+            <div class="col-md-5">
+                <input type="number" name="amount" class="form-control bg-light" value={{info.p}} readonly>
+
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Rate:</label>
+            <div class="col-md-5">
+                <input type="number" name="rate" class="form-control bg-light" value={{info.r}} readonly>
+
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark  required">Time in Months:</label>
+            <div class="col-md-5">
+                <input type="number" name="time" class="form-control bg-light" value={{info.t}} readonly>
+            </div>
+        </div><br><br>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark">Simple Interest:</label>
+            <div class="col-md-5">
+                <input [readonly]="true" class="form-control bg-light" value={{info.si}} readonly>
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-md-2 label col-form-label text-dark">Total Amount:</label>
+            <div class="col-md-5">
+                <input type="text" [readonly]="true" name="totalamount" class="form-control bg-light" value={{info.ai}}
+                    readonly>
+            </div>
+        </div><br>
+        <div>
+            <button type="button" class="btn btn-dark" (click)="backBtn()">Back</button>
+            <button type="button" class=" btn delbtn" (click)="deleteData()">Delete</button>
+        </div>
+    </section>
+
+</form>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

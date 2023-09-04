@@ -1,0 +1,96 @@
+<img src="assets/Img/form.png"><br>
+<h2> User Details Form</h2>
+<form class="container" #myForm="ngForm">
+    <section>
+        <h4><b>User Details</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Full name:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control bg-light" #name  (blur)="getNameValue($event)" placeholder="Enter Name">
+                <h6 class="error-message name-error-message">{{errname}}</h6>
+            </div><br>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required ">Date of Birth:</label>
+            <div class="col-md-5">
+                <input class="form-control bg-light" (blur)="getdobValue($event)" placeholder="Enter Date of Birth (dd/mm/yyyy)">
+                <h6 class="error-message name-error-message">{{errdob}}</h6>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Mobile:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control bg-light" placeholder="Enter Mobile Number"
+                    (blur)="getPhoneValue($event)">
+                <h6 class="error-message name-error-message">{{errmobile}}</h6>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark" (blur)="getCommentValue($event)">Comment:</label>
+            <div class="col-md-5">
+                <textarea class="form-control bg-light" rows="4" placeholder="Enter comment"></textarea>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h4><b>Loan Type</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required " value="loan">Loan:</label>
+            <div class="col-md-5 dropdown ">
+                <select class="col-md-13 form-control bg-light" [(ngModel)]="loan" name="loantype"
+                    (click)="getLoanValue($event)" required>
+                    <option value="">Select Loan Type </option>
+                    <option *ngFor="let data of data.loans; index as i" value={{data.Type}}>{{data.Type}}</option>
+                </select>
+                <h6 class="error-message name-error-message">{{errloan}}</h6>
+            </div>
+        </div><br>
+    </section>
+    <section>
+        <h4><b>Loan Details</b></h4>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Principal Amount:</label>
+            <div class="col-md-5">
+                <input type="number" name="amount" class="form-control bg-light" (blur)="getAmountValue($event)"
+                    [(ngModel)]="p" placeholder="Enter Principal Amount">
+                <h6 class="error-message name-error-message">{{erramount}}</h6>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark required">Rate:</label>
+            <div class="col-md-5">
+                <input type="number" name="rate" class="form-control bg-light" (blur)="getRateValue($event)"
+                    [(ngModel)]="r" placeholder="Enter Rate">
+                <h6 class="error-message name-error-message">{{errrate}}</h6>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark  required">Time in Months:</label>
+            <div class="col-md-5">
+                <input type="number" name="time" class="form-control bg-light" (blur)="getTimeValue($event)"
+                    [(ngModel)]="t" placeholder="Enter Time(in Months)" >
+                <h6 class="error-message name-error-message">{{errtime}}</h6>
+            </div>
+        </div><br><br>
+    </section>
+    <section>
+        <div class="form-group row">
+            <label class="col-md-2 label col-form-label text-dark">Simple Interest:</label>
+            <div class="col-md-5">
+                <input type="number" name="simpleInterest" [readonly]="true" [(ngModel)]="si"
+                    class="form-control bg-light">
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-md-2 label col-form-label text-dark">Total Amount:</label>
+            <div class="col-md-5">
+                <input type="text" [readonly]="true"  name="totalamount" [(ngModel)]="ai" class="form-control bg-light">
+            </div>
+        </div><br>
+    </section>
+    <div class="btn-group">
+        <button type="button" class="btn" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn" (click)="calculate()">Calculate</button>
+        <button type="submit" class="btn" (click)="save()" [disabled]="!myForm.valid">Save</button>
+    </div>
+</form>

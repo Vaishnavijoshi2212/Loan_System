@@ -1,0 +1,53 @@
+input {
+    width: 100%;
+    height: 2.5em;
+    padding-left: 5%;
+}
+
+.required:after {
+    content: "*";
+    color: red;
+    display: inline;
+}
+
+.container {
+    margin-left: 30%;
+    margin-top: 3%;
+    width: 70%;
+    height: 800px;
+}
+
+select {
+    margin-top: 2%;
+    width: 100%;
+    height: 2.5em;
+}
+
+p {
+    height: 40px;
+}
+
+.btn-group{
+    float: right;
+}
+.btn {
+    background-color: black;
+    border: 0ch;
+    color: white;
+    width: 180px;
+}
+
+.upbtn {
+    background-color: red;
+    border: 0ch;
+    color: white;
+}
+.error-message {
+    margin-left: 7%;
+    color: red;
+    height: 20px;
+}
+
+.buttons {
+    margin-top: 15%;
+}
